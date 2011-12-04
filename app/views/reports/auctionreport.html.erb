@@ -1,0 +1,84 @@
+<html>
+<style type="text/css">
+table{
+    width:80%;
+}
+table, td, th
+{
+border:0px solid green;
+}
+th
+{
+background-color:green;
+color:white;
+}
+</style>
+
+
+<title>Admin | Auctions Report</title>
+<body>
+
+
+<div id="main">
+<h1>Auctions Report</h1></div>
+
+
+   <br>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+     <% end %>
+
+
+
+
+
+ <%= render :partial => "menu" %>
+
+Total Open Auctions : <%= @totalauction  %>  Closed Auctions: <%= @closeauction %>
+
+     <br>
+     <% @groupitems.each do |groupitem| %>
+
+      Category: <%= groupitem[0]%>   Numbers: <%= groupitem[1]%>
+    <br>
+<% end %>
+     <br>
+     <% @typeitems.each do |typeitem| %>
+
+      Type: <%= typeitem[0]%>   Numbers: <%= typeitem[1]%>
+    <br>
+<% end %>
+
+
+<br>
+    <p>
+        <%= link_to "Look for Previous Auctions Report", auctionreport_searches_path %>
+    </p>
+
+<h3> Currently Open Auctions</h3>
+ <table>
+  <tr>
+    <th>Item Name</th>
+    <th>Category</th>
+    <th>Auction Type</th>
+    <th>Auction Start</th>
+    <th>Auction End</th>
+  </tr>
+
+
+
+<% @items.each do |item| %>
+
+  <tr>
+    <td><%= item.item_name %> </td>
+    <td><%= item.category_name %> </td>
+    <td><%= item.flags %> </td>
+    <td><%= item.created_at %> </td>
+    <td><%= item.auction_end %> </td>
+  </tr>
+<% end %>
+</table>
+
+
+</body>
+</html>

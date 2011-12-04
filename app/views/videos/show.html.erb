@@ -1,0 +1,33 @@
+<h2><%= @video.title %></h2>
+
+<p>Here's the raw Panda information:</p>
+
+<p>Input video: <%= h @original_video.inspect %></p>
+<p>Output H264: <%= h @h264_encoding.inspect %></p>
+
+<% if @h264_encoding.success? %>
+  
+  <p>HTML5 PLAYER</p>
+
+  <!-- HTML5 player -->
+  <video id="movie" width="<%= @h264_encoding.width %>" height="<%= @h264_encoding.height %>" preload="none"
+    poster="<%= @h264_encoding.screenshots.first %>" controls>
+    <source src="<%= @h264_encoding.url %>" type="video/mp4">
+  </video>
+
+  <p>FLASH PLAYER</p>
+  
+  <!-- Flash player -->
+  <div id='flash_player'>Flash player will appear here</div>
+
+  <script type='text/javascript'>
+    var so = new SWFObject('/player.swf','mpl',"<%= @h264_encoding.width %>","<%= @h264_encoding.height %>",'9');
+    so.addParam('allowfullscreen','true');
+    so.addParam('allowscriptaccess','always');
+    so.addParam('wmode','opaque');
+    so.addVariable('file','<%= @h264_encoding.url %>');
+    so.addVariable('image','<%= @h264_encoding.screenshots.first %>');
+    so.write('flash_player');
+  </script>
+  
+<% end %>

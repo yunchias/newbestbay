@@ -1,0 +1,45 @@
+<%= form_for @bidding,  :html =>  { :multipart => true} do |f| %>
+  <% if @bidding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bidding.errors.count, "error") %> prohibited this bidding from being saved:</h2>
+
+      <ul>
+      <% @bidding.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+<p>
+  <b>Item name:</b>
+  <%= @item.item_name %>
+
+</p>
+
+<p>
+  <b>Item desc:</b>
+  <%= @item.item_desc %>
+</p>
+
+<p>
+  <b>Current Bidding Price:</b>
+  <%= @item.item_price %>
+</p>
+
+<p>
+  <b>Item cond:</b>
+  <%= @item.item_cond %>
+
+ </p>
+
+
+  <div class="actions">
+    <%= f.submit "Buy it now" %>
+  </div>
+
+
+<% end %>

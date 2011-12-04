@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+    </head>
+
+    <body>
+
+    <%= will_paginate @items %>
+
+
+    <%= form_for items_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+    <% end %>
+
+    <p>
+      <%= link_to "Advanced Search", new_search_path %>
+    </p>
+
+
+    <body id="item" >
+
+  <div id="columns" >
+
+<div id="side" >
+<div id="cart" >
+<%= render @cart %>
+</div>
+
+</div>
+    </div>
+  </body>
+
+
+    <% @items.each do |item| %>
+
+
+    	<div class="section" id="page"> <!-- Defining the #page section with the section tag -->
+
+
+
+            <div class="section" id="articles"> <!-- A new section with the articles -->
+
+
+                <div class="line"></div>  <!-- Dividing line -->
+
+                <div class="article" id="article1">
+                  <%= facebook_like %>
+                  <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+                    <h2><%= item.item_name %></h2>
+                 <div class ="price">
+                  <h2><%= number_to_currency(item.item_price) %></h2>
+
+                   <div class="price">
+
+
+                     <% if item.flags == "Auction" %>
+
+                     <%= link_to "Place Bid", new_bidding_path(:item => item.attributes) %>
+
+                        <% else %>
+
+                         <%= button_to 'Buy it Now', line_items_path(:item_id => item) %>
+                         <%= link_to 'View Item', item %>
+
+                         <% end %>
+                    <div class="line"></div>
+
+
+
+                      <div class="my-custom-class">
+
+                      <p><%= item.item_desc %></p>
+                        </div>
+
+                     </div>
+                </div>
+
+
+
+
+            </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+<% end %>
+
+
+    </body>
+</html>

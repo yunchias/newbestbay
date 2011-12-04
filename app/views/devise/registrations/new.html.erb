@@ -1,0 +1,264 @@
+
+
+
+
+
+
+
+
+<html>
+<body bgcolor='#33A18D'>
+<font size="15" face="calibri">BestBay</font>
+<br>
+
+<br>
+
+
+<table border ="3" align="center" width="90%" height="900" cellspacing="0" cellpadding="0">
+
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
+   <div class="headeralign"> <%= f.label "User Account Information", :style => "font-size:400%" %> </div>
+
+
+
+<td>
+<%= f.label "User Information", :style => "font-size:200%" %>
+<br>
+<br>
+<br>
+<br>
+
+ <%= f.label "Purpose of Registration"%> <select name="user[purpose]" id="purpose">
+					<option  value="">Make a choice</option>
+					<option  value="Bidding">Bidding</option>
+					<option  value="Posting">Posting</option>
+
+				</select>
+  <br><br>
+
+
+<div id="attendee_1_wrap" class="name_wrap push">
+					<h3>Please provide your credit card information</h3>
+
+
+							<%= f.label :Credit_card_number %>
+                            <%= f.text_field :cardno %>
+  <br>
+  <br>
+				</div>
+
+				<div id="attendee_2_wrap" class="name_wrap">
+                  <%= f.label :Type_of_card %>
+                            <%= f.text_field :typecard %>
+                  <br >
+                  <br >
+
+				</div>
+
+				<div id="attendee_3_wrap" class="name_wrap">
+                  <%= f.label :Expiry_date %>
+                            <%= f.date_select :expirydate, :include_blank => true %>
+                  <br >
+                  <br >
+
+				</div>
+
+				<div id="attendee_4_wrap" class="name_wrap">
+                  <%= f.label :CCV %>
+                            <%= f.text_field :ccv %>
+                  <br>
+                  <br>
+
+				</div>
+
+
+
+
+
+ <div class="field">  <%= f.label :title, {:style=>"font-size:150%;",:class => "css_class"} %>
+
+ <div class="left"> <%= f.select :title, ['Mr','Miss','Mrs'], :include_blank => true %></div>
+   </div>
+<br>
+
+<div class="field"><%= f.label :first_name, {:style=>"font-size:150%;",:class => "css_class"} %>
+
+
+ <div class="left"><%= f.text_field  :first_name %></div>
+  </div>
+<br>
+
+<div class="field"><%= f.label :middle_name, {:style=>"font-size:150%;",:class => "css_class"} %>
+ <div class="left"> <%= f.text_field :middle_name, :size => "8"  %></div>
+  </div>
+<br>
+
+<br>
+
+<div class="field"><%= f.label :status, {:style=>"font-size:150%;",:class => "css_class"} %>
+ <div class="left"> <%= f.hidden_field :status, :value => "A"  %></div>
+  </div>
+<br>
+
+
+<div class="field"><%= f.label :last_name, {:style=>"font-size:150%;",:class => "css_class"} %>
+
+ <div class="left"> <%= f.text_field :last_name %></div>
+  </div>
+
+<br>
+
+<div class="field"><%= f.label :street, {:style=>"font-size:150%;",:class => "css_class"} %>
+ <div class="left"> <%= f.text_area :street, :rows =>"2", :style=> "overflow-y: scroll"  %></div>
+  </div>
+<br>
+
+<div class="field"><%= f.label :city, {:style=>"font-size:150%;",:class => "css_class"} %>
+ <div class="left"> <%= f.text_field :city %><br /></div>
+  </div>
+
+<br>
+
+<div class="field"><%= f.label :state, {:style=>"font-size:150%;",:class => "css_class"} %>
+ <div class="left"> <%= f.select :state, ['PA','NY','CA'], :include_blank => true %></div>
+  </div>
+<br>
+
+<div class="field"><%= f.label :country, {:style=>"font-size:150%;",:class => "css_class"} %>
+<div class="left">  <%= f.select :country, ['United States of America','Canada'], :include_blank => true %><br /></div>
+  </div>
+<br>
+
+<div class="field"><%= f.label :zipcode, {:style=>"font-size:150%;",:class => "css_class"} %>
+ <div class="left"> <%= f.text_field :zipcode %><br /></div>
+  </div>
+<br>
+
+
+
+  <div class="field">
+    <%= f.label :dateofbirth, {:style=>"font-size:150%;",:class => "css_class"}%><br />
+  <div class="left">  <%= f.date_select :dateofbirth, :order => [:day, :month, :year], :include_blank => true %>
+    </div>
+    </div>
+
+  <div class="field">
+    <%= f.label :phonenumber, {:style=>"font-size:150%;",:class => "css_class"}%>
+  <div class="left">  <%= f.telephone_field :phonenumber %>
+    </div>                                                                   </div>
+
+
+     </td>
+
+
+
+
+
+
+
+
+
+
+
+
+<td>
+
+<%= f.label "User Account Information", :style => "font-size:200%" %>
+<br>
+<br>
+<br>
+
+
+<!--<form method="post" action="/users/confirm">-->
+
+
+
+<div class="leftnewlabel"><%= f.label :email, {:style=>"font-size:150%;",:class => "css_class"} %>
+  <div class="leftnew">
+  <%= f.email_field :email %><br /></div>  </div>
+<br>
+<br>
+<div class="leftnewlabel"><%= f.label :email_confirmation, {:style=>"font-size:150%;",:class => "css_class"} %>
+  <div class="leftnew">
+  <%= f.email_field :email_confirmation %><br /></div>   </div>
+<br>
+<br>
+<div class="leftnewlabel"><%= f.label :username, {:style=>"font-size:150%;",:class => "css_class"} %>
+  <div class="leftnew">
+  <%= f.text_field :username %><br /></div>    </div>
+<br>
+<br>
+<div class="leftnewlabel"><%= f.label :password, {:style=>"font-size:150%;",:class => "css_class"} %>
+  <div class="leftnew">
+  <%= f.password_field :password %><br /></div>  </div>
+<br>
+<br>
+<div class="leftnewlabel"><%= f.label :password_confirmation, {:style=>"font-size:150%;",:class => "css_class"} %>
+  <div class="leftnew">
+  <%= f.password_field :password_confirmation %><br /></div>   </div>
+<br>
+<br>
+<div class="leftnewlabel"><%= f.label :secret_question, {:style=>"font-size:150%;",:class => "css_class"} %>
+  <div class="leftnew">
+  <%= f.select :secret_q, ['What is your best friends name?','What is the name of your first school?'], :include_blank => true  %><br /></div>
+  </div>
+<br>
+<br>
+<div class="leftnewlabel"><%= f.label :secret_answer, {:style=>"font-size:150%;",:class => "css_class"} %>
+  <div class="leftnew">
+  <%= f.text_field :secret_a %><br /></div>    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="actions">
+<%= f.submit "Register" %>
+</div>
+
+
+
+<!--<div align="center"><input name="commit" type="submit" value="Register" >-->
+  </div>
+      <br />
+<% end %>
+<!--</form>-->
+  </td>
+</table>
+
+
+
+
+
+<%= render :partial => "devise/shared/links" %>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

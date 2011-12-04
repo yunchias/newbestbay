@@ -1,0 +1,21 @@
+<h1>Listing bidcarts</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bidcarts.each do |bidcart| %>
+  <tr>
+    <td><%= link_to 'Show', bidcart %></td>
+    <td><%= link_to 'Edit', edit_bidcart_path(bidcart) %></td>
+    <td><%= link_to 'Destroy', bidcart, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bidcart', new_bidcart_path %>

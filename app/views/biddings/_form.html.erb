@@ -1,0 +1,159 @@
+<%= form_for @bidding,  :html =>  { :multipart => true} do |f| %>
+  <% if @bidding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bidding.errors.count, "error") %> prohibited this bidding from being saved:</h2>
+
+      <ul>
+      <% @bidding.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+<p>
+  <b>Item name:</b>
+  <%= @item.item_name %>
+
+</p>
+
+
+
+<p>
+  <b>Item desc:</b>
+  <%= @item.item_desc %>
+</p>
+
+<p>
+  <b>Current Bidding Price:</b>
+  <%= @item.item_price %>
+</p>
+
+
+
+
+
+<p>
+  <b>Item cond:</b>
+  <%= @item.item_cond %>
+
+ </p>
+
+    <p>
+
+    <%= @item.auction_end %>  <br />
+    <%= Time.now.strftime("%Y-%m-%d %H:%M") %>
+
+      </p>
+
+   <p> <b><%= "Time left for bidding: " %>  </b>
+
+    <%= @item.auction_end - Time.now %>
+   </p>
+
+    <% if @item.auction_end <= Time.now %>
+
+
+        Sorry! the bidding has closed!!
+
+
+
+    <script type="text/javascript">
+    window.onload = function() {
+        var paras = document.getElementById('content').getElementsByTagName('p');
+        if(paras.length) {
+            paras[0].className = paras[0].className + ' intro';
+        }
+    };
+    </script>	<style type="text/css">
+
+        </style>
+        <script type="text/javascript" src="jquery-1.2.6.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                /* delay function */
+                jQuery.fn.delay = function(time,func){
+                    return this.each(function(){
+                        setTimeout(func,time);
+                    });
+                };
+
+
+                jQuery.fn.countDown = function(settings,to) {
+                    settings = jQuery.extend({
+                        startFontSize: '36px',
+                        endFontSize: '12px',
+                        duration: 0,
+                        startNumber:0,
+                        endNumber: 0,
+                        callBack: function() { }
+                    }, settings);
+                    return this.each(function() {
+
+                        if(!to && to != settings.endNumber) { to = settings.startNumber; }
+
+                        //set the countdown to the starting number
+                        $(this).text(to).css('fontSize',settings.startFontSize);
+
+                        //loopage
+                        $(this).animate({
+                            'fontSize': settings.endFontSize
+                        },settings.duration,'',function() {
+                            if(to > settings.endNumber + 1) {
+                                $(this).css('fontSize',settings.startFontSize).text(to - 1).countDown(settings,to - 1);
+                            }
+                            else
+                            {
+                                settings.callBack(this);
+                            }
+                        });
+
+                    });
+                };
+
+                $('#countdown').countDown({
+                    startNumber:0,
+                    callBack: function(me) {
+                        $(me).text('Sorry! Your bidding time has elapsed').css('font-size','20') ;
+                            $(":text").attr('disabled',true);
+                            $('input[type=submit]').attr('disabled', true);
+                    }
+                });
+
+            });
+        </script>
+    <body>
+    <script type="text/javascript">
+    (function(){
+      var bsa = document.createElement('script');
+         bsa.type = 'text/javascript';
+         bsa.async = true;
+         bsa.src = '//s3.buysellads.com/ac/bsa.js';
+      (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+    })();
+    </script>
+    </body>
+
+
+        <p>
+            <span id="countdown"></span>
+        </p>
+
+        <% end %>
+
+
+
+<div class="field">
+    <%= f.label :Your_bidding_price, {:style=>"font-size:150%;",:class => "css_class"} %><br />
+    <%= f.text_field :bid_price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Place your Bid" %>
+  </div>
+<% end %>

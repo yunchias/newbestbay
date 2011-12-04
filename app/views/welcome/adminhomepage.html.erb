@@ -1,0 +1,42 @@
+<html>
+
+<title>You are at the Home Page of the BestBay Administration System</title>
+<body>
+
+
+<div id="main">
+<h1>BestBay Admin</h1></div>
+
+
+   <div id="container">
+    <div id="user_nav">
+      <% if admin_signed_in? %>
+      <font size="30"> Welcome back <%= current_admin.username %> !</font><br>
+      You have signed in as <%= current_admin.username %>. Not you? please click
+      <%= link_to "sign_out", destroy_admin_session_path, :method => 'delete' %>
+
+        <%end%>
+      <br>
+    </div>
+
+  </div>
+
+
+   <br>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+     <% end %>
+
+          </div>
+
+     <div id="menu">
+         <ul class="menu">
+             <li class="parent"><%= link_to "Auctions Report", :controller => "reports", :action => "auctionreport" %></li>
+             <li class="parent"><%= link_to "Users Report", :controller => "reports", :action => "usereport" %></li>
+             <li class="last"><%= link_to "Biddings Report", :controller => "reports", :action => "biddingreport" %></li>
+
+         </ul>
+     </div>
+
+</body>
+</html>

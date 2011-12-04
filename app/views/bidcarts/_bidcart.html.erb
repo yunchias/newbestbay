@@ -1,0 +1,13 @@
+<div class="cart_title" >Your Cart</div>
+<table>
+<%= render(bidcart.line_bids) %>
+<tr class="total_line" >
+<td colspan="2" >Total</td>
+<td class="total_cell" ><%= number_to_currency(bidcart.total_price) %></td>
+</tr>
+</table>
+<%= button_to 'Empty cart', @bidcart, :method => :delete,
+:confirm => 'Are you sure?' %>
+
+
+<%= link_to "Checkout", @bidcart.paypall_url(biddings_url) %>

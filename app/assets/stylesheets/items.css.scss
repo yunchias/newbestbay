@@ -1,0 +1,93 @@
+// Place all the styles related to the Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#item_list table {
+        border-collapse: collapse;
+}
+
+#item_list table tr td {
+        padding-right: 500px;
+        vertical-align: top;
+}
+
+
+
+#item_list .list_description {
+  width:        60%;
+}
+
+#item_list .list_description dl {
+        margin: 0;
+}
+
+#item_list .list_description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#item_list .list_description dd {
+        margin: 0;
+}
+
+#item_list .list_actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#item_list .list_line_even {
+  background:   #e0f8f8;
+}
+
+#item_list .list_line_odd {
+  background:   #f8b0f8;
+}
+
+#item .entry form, #item .entry form div {
+display: inline;
+}
+
+
+#item .cart_title {
+font: 120% bold;
+}
+#item .item_price, #item .total_line {
+text-align: right;
+}
+#item .total_line .total_cell {
+font-weight: bold;
+border-top: 1px solid #595;
+}
+
+#cart, #cart table {
+font-size: smaller;
+color:
+white;
+}
+#cart table {
+border-top:
+1px dotted #595;
+border-bottom: 1px dotted #595;
+margin-bottom: 10px;
+}
+
+
+
+
+#side {
+float: right;
+padding-top: 1em;
+padding-left: 1em;
+padding-bottom: 1em;
+width: 12em;
+background: green;
+}
+#side a {
+color: #bfb;
+font-size: large;
+}
+
+
+

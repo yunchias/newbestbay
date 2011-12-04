@@ -1,0 +1,262 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_bidding_path(@bidding) %> |
+<%= link_to 'Back', biddings_path %>
+
+
+
+<%= form_for @bidding,  :html =>  { :multipart => true} do |f| %>
+  <% if @bidding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bidding.errors.count, "error") %> prohibited this bidding from being saved:</h2>
+
+      <ul>
+      <% @bidding.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+<p>
+  <b>Item name:</b>
+  <%= @bidding.item_name %>
+
+</p>
+
+
+
+<p>
+  <b>Item desc:</b>
+  <%= @bidding.item_desc %>
+</p>
+
+<p>
+  <b>Current Bidding Price:</b>
+  <%= @bidding.bid_price %>
+</p>
+
+<p>
+  <b>Your status:</b>
+
+ <%= @bidding.bid_status %>
+ </p>
+
+
+<p>
+  <b>Item cond:</b>
+  <%= @bidding.item_cond %>
+
+ </p>
+
+    <%= @item.auction_end %>  <br />
+    <%= Time.now.strftime("%Y-%m-%d %H:%M") %>
+
+    <p>
+
+    <%= @item.auction_end - Time.now %>
+
+       </p>
+    <% if @item.auction_end >= Time.now && @bidding.bid_status == "Highest" %>
+
+
+
+
+    <script type="text/javascript">
+    window.onload = function() {
+        var paras = document.getElementById('content').getElementsByTagName('p');
+        if(paras.length) {
+            paras[0].className = paras[0].className + ' intro';
+        }
+    };
+    </script>	<style type="text/css">
+
+        </style>
+        <script type="text/javascript" src="jquery-1.2.6.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                /* delay function */
+                jQuery.fn.delay = function(time,func){
+                    return this.each(function(){
+                        setTimeout(func,time);
+                    });
+                };
+
+
+                jQuery.fn.countDown = function(settings,to) {
+                    settings = jQuery.extend({
+                        startFontSize: '36px',
+                        endFontSize: '12px',
+                        duration: 0,
+                        startNumber:0,
+                        endNumber: 0,
+                        callBack: function() { }
+                    }, settings);
+                    return this.each(function() {
+
+                        if(!to && to != settings.endNumber) { to = settings.startNumber; }
+
+                        //set the countdown to the starting number
+                        $(this).text(to).css('fontSize',settings.startFontSize);
+
+                        //loopage
+                        $(this).animate({
+                            'fontSize': settings.endFontSize
+                        },settings.duration,'',function() {
+                            if(to > settings.endNumber + 1) {
+                                $(this).css('fontSize',settings.startFontSize).text(to - 1).countDown(settings,to - 1);
+                            }
+                            else
+                            {
+                                settings.callBack(this);
+                            }
+                        });
+
+                    });
+                };
+
+                $('#countdown').countDown({
+                    startNumber:0,
+                    callBack: function(me) {
+                        $(me).text('Thank you for your Bid, Please be patient until the bidding is over').css('font-size:150%','60') ;
+                            $(":text").attr('disabled',true);
+                            $('input[type=submit]').attr('enable', true);
+                    }
+                });
+
+            });
+        </script>
+    <body>
+
+    <script type="text/javascript">
+    (function(){
+      var bsa = document.createElement('script');
+         bsa.type = 'text/javascript';
+         bsa.async = true;
+         bsa.src = '//s3.buysellads.com/ac/bsa.js';
+      (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+    })();
+    </script>
+    </body>
+
+
+        <p>
+            <span id="countdown"></span>
+        </p>
+
+
+        <% else %>   <% if @bidding.bid_status == "Not the highest" %>
+
+<script type="text/javascript">
+    window.onload = function() {
+        var paras = document.getElementById('content').getElementsByTagName('p');
+        if(paras.length) {
+            paras[0].className = paras[0].className + ' intro';
+        }
+    };
+    </script>	<style type="text/css">
+
+        </style>
+        <script type="text/javascript" src="jquery-1.2.6.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                /* delay function */
+                jQuery.fn.delay = function(time,func){
+                    return this.each(function(){
+                        setTimeout(func,time);
+                    });
+                };
+
+
+                jQuery.fn.countDown = function(settings,to) {
+                    settings = jQuery.extend({
+                        startFontSize: '36px',
+                        endFontSize: '12px',
+                        duration: 0,
+                        startNumber:0,
+                        endNumber: 0,
+                        callBack: function() { }
+                    }, settings);
+                    return this.each(function() {
+
+                        if(!to && to != settings.endNumber) { to = settings.startNumber; }
+
+                        //set the countdown to the starting number
+                        $(this).text(to).css('fontSize',settings.startFontSize);
+
+                        //loopage
+                        $(this).animate({
+                            'fontSize': settings.endFontSize
+                        },settings.duration,'',function() {
+                            if(to > settings.endNumber + 1) {
+                                $(this).css('fontSize',settings.startFontSize).text(to - 1).countDown(settings,to - 1);
+                            }
+                            else
+                            {
+                                settings.callBack(this);
+                            }
+                        });
+
+                    });
+                };
+
+                $('#countdown').countDown({
+                    startNumber:0,
+                    callBack: function(me) {
+                        $(me).text('Thank you for your Bid, Please be patient until the bidding is over').css('font-size:150%','60') ;
+                            $(":text").attr('disabled',true);
+                            $('input[type=submit]').attr('enable', true);
+                    }
+                });
+
+            });
+        </script>
+    <body>
+
+    <script type="text/javascript">
+    (function(){
+      var bsa = document.createElement('script');
+         bsa.type = 'text/javascript';
+         bsa.async = true;
+         bsa.src = '//s3.buysellads.com/ac/bsa.js';
+      (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+    })();
+    </script>
+    </body>
+
+
+        <p>
+            <span id="countdown"></span>
+        </p>
+
+
+            <% else %> <% if @item.auction_end <= Time.now && @bidding.bid_status == "Highest" %>
+                Congratulations!! You are the winner, Please click on the checkout button to proceed to payment
+                <% end %>
+
+
+        <% end %>
+        <% end %>
+
+
+
+
+  </div>
+
+   <% end %>
+
+  <% for  bidding in @bidding1 %>
+      <div class="actions">
+            <ul id ="trigger-list">
+
+              <%= button_to 'Add to Bid Cart', line_bids_path(:bidding_id => bidding) %>
+          </ul>
+      </div>
+        <% end %>

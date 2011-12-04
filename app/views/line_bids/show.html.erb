@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Bidding:</b>
+  <%= @line_bid.bidding_id %>
+</p>
+
+<p>
+  <b>Bidcart:</b>
+  <%= @line_bid.bidcart_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_line_bid_path(@line_bid) %> |
+<%= link_to 'Back', line_bids_path %>

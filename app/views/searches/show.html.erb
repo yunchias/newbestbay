@@ -1,0 +1,47 @@
+<style type="text/css">
+table{
+    width:80%;
+}
+table, td, th
+{
+border:0px solid green;
+}
+th
+{
+background-color:green;
+color:white;
+}
+</style>
+
+<% if @search.auction_start.blank? %>
+    <h1>Search Results</h1>
+    <%= render :partial => @search.items %>
+<% else %>
+    <h3><%= @search.auctionreports.size %> Auctions Opened and Closed;  <%= @search.openauctoins.size %> Auctions Opened;
+    <%= @search.closedauctions.size %> Auctions Closed   </h3>
+    <h1>Auction Reports</h1>
+    <h3> Auctions opened and closed during this period</h3>
+ <table>
+  <tr>
+    <th>Item Name</th>
+    <th>Category</th>
+    <th>Auction Type</th>
+    <th>Auction Start</th>
+    <th>Auction End</th>
+  </tr>
+
+
+
+<% @search.auctionreports.each do |item| %>
+
+  <tr>
+    <td><%= item.item_name %> </td>
+    <td><%= item.category_name %> </td>
+    <td><%= item.flags %> </td>
+    <td><%= item.created_at %> </td>
+    <td><%= item.auction_end %> </td>
+  </tr>
+<% end %>
+</table>
+
+<% end %>

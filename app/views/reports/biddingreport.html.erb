@@ -1,0 +1,64 @@
+<h1> User Report</h1>
+
+<html>
+<style type="text/css">
+table{
+    width:80%;
+}
+table, td, th
+{
+border:0px solid green;
+}
+th
+{
+background-color:green;
+color:white;
+}
+</style>
+
+
+<title>Admin | Biddings Report</title>
+<body>
+
+
+<div id="main">
+<h1>Biddings Report</h1></div>
+
+
+   <br>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+     <% end %>
+
+
+
+
+
+ <%= render :partial => "menu" %>
+
+<br>
+
+<h3> User's Auctions</h3>
+
+
+ <table>
+  <tr>
+    <th>User ID</th>
+    <th>Number of Auctions</th>
+  </tr>
+
+   <% @autionitems.each do |bidding| %>
+
+  <tr>
+    <td><%= bidding.user_id %> </td>
+      <td><%= bidding.count %> </td>
+
+  </tr>
+<% end %>
+
+
+</table>
+
+
+</body>
+</html>

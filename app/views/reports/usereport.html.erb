@@ -1,0 +1,78 @@
+<h1> User Report</h1>
+
+<html>
+<style type="text/css">
+table{
+    width:80%;
+}
+table, td, th
+{
+border:0px solid green;
+}
+th
+{
+background-color:green;
+color:white;
+}
+</style>
+
+
+<title>Admin | Users Report</title>
+<body>
+
+
+<div id="main">
+<h1>Users Report</h1></div>
+
+
+   <br>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+     <% end %>
+
+
+
+
+
+ <%= render :partial => "menu" %>
+
+Total Users : <%= @totaluser.size %>  New Users this week: <%= @totalnewuser %>
+<br>
+Total Sellers : <%= @totalseller %>  Total Buyers <%= @totalbuyer %>
+<br>
+Total Deactivation Users : <%= @totaldeac %>  Active Users this month: <%= @totalactiveuser %>
+ <br>
+Users Increase Rate:  <%= @userincrate %>   Deactivation Users Rate: <%= @decrate %>   Active Users Rate: <%= @actuserate %>
+
+
+<br>
+
+<h3> Bestbay Users</h3>
+ <table>
+  <tr>
+    <th>User ID</th>
+    <th>User Name</th>
+    <th>Purpose</th>
+    <th>Status</th>
+    <th>Create At</th>
+    <th>Last Sign in</th>
+  </tr>
+
+
+
+<% @totaluser.each do |user| %>
+
+  <tr>
+    <td><%= user.id %> </td>
+    <td><%= user.username %> </td>
+    <td><%= user.purpose %> </td>
+    <td><%= user.status %> </td>
+    <td><%= user.created_at %> </td>
+    <td><%= user.last_sign_in_at %> </td>
+  </tr>
+<% end %>
+</table>
+
+
+</body>
+</html>

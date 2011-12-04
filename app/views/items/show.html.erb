@@ -1,0 +1,82 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<%= form_for items_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search %>
+      <%= submit_tag "Search" %>
+    </p>
+    <% end %>
+
+<%= form_for @item,  :html =>  { :multipart => true} do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this bidding from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <body id="item" >
+
+  <div id="columns" >
+
+<div id="side" >
+<div id="cart" >
+<%= render @cart %>
+</div>
+
+</div>
+    </div>
+  </body>
+
+
+<p>
+  <b>Item name:</b>
+  <%= @item.item_name %>
+
+
+</p>
+
+<% for asset in @item.assets %>
+
+<%=link_to image_tag(asset.asset.url(:thumb)) , asset.asset.url(:original),:popup=>['original_image', 'height=700,width=900'] %>
+         <% end %>
+
+
+
+
+<p>
+  <b>Item desc:</b>
+  <%= @item.item_desc %>
+</p>
+
+<p>
+  <b>Current Bidding Price:</b>
+  <%= @item.item_price %>
+</p>
+
+<p>
+
+<p>
+  <b>Item cond:</b>
+  <%= @item.item_cond %>
+
+
+<% end %>
+
+<% for  item in @item1 %>
+  <div class="actions">
+        <ul id ="trigger-list">
+
+    <%= button_to 'Buy it Now', line_items_path(:item_id => item), {:class => "trigger success-trigger"} %>   </ul>
+  </div>
+<% end %>
+
+
+

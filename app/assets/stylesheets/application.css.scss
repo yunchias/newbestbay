@@ -1,0 +1,360 @@
+
+
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+h1 {font-size:450%;}
+
+/* CSS Document */
+.textInput
+{
+
+border: 1px solid #ff0000;
+background: #FFFF99;
+color: #black;
+font-size: 1.1em;
+padding: 2px 4px 8px 4px;
+
+
+}
+
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+#nav, #nav ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+#nav a {
+	display: block;
+	width: 10em;
+}
+
+#nav li {
+	float: left;
+	width: 10em;
+}
+
+#nav li ul {
+	position: absolute;
+	width: 10em;
+	left: -999em;
+}
+
+#nav li:hover ul {
+	left: auto;
+}
+
+#nav li ul ul {
+	margin: -1em 0 0 10em;
+}
+
+
+#nav, #nav ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1;
+}
+
+#nav li:hover ul ul, #nav li.sfhover ul ul {
+	left: -999em;
+}
+
+#nav li:hover ul, #nav li li:hover ul, #nav li.sfhover ul, #nav li li.sfhover ul {
+	left: auto;
+}
+
+
+
+/**
+ *********************************************
+ * Prototype of styles for horizontal CSS-menu
+ * @data 30.06.2009
+ *********************************************
+ * (X)HTML-scheme:
+ *  <div id="menu">
+ *      <ul class="menu">
+ *          <li><a href="#" class="parent"><span>level 1</span></a>
+ *              <ul>
+ *                  <li><a href="#" class="parent"><span>level 2</span></a>
+ *                      <ul><li><a href="#"><span>level 3</span></a></li></ul>
+ *                  </li>
+ *              </ul>
+ *          </li>
+ *          <li class="last"><a href="#"><span>level 1</span></a></li>
+ *      </ul>
+ *  </div>
+ *********************************************
+ */
+
+/* menu::base */
+div#menu {
+    height:41px;
+    background:url(main-bg.png) repeat-x;
+}
+
+div#menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+}
+div#menu ul.menu {
+    padding-left: 10px;
+}
+
+div#menu li {
+    position: relative;
+    z-index: 9;
+    margin: 0;
+    padding: 0 30px 0 0;
+    display: block;
+    float: left;
+}
+div#menu li:hover>ul {
+    left: -2px;
+}
+
+div#menu a {
+    position: relative;
+    z-index: 10;
+    height: 41px;
+    display: block;
+    float: left;
+    line-height: 41px;
+    text-decoration: none;
+    font: normal 12px Trebuchet MS;
+}
+div#menu a:hover, div#menu a:hover span { color: #fff; }
+div#menu li.current a {}
+
+div#menu span {
+    display: block;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 95% 0;
+}
+div#menu ul ul a.parent span {
+    background-position:95% 8px;
+    background-image: url(item-pointer.gif);
+}
+div#menu ul ul a.parent:hover span {
+    background-image: url(item-pointer-mover.gif);
+}
+
+/* menu::level1 */
+div#menu a {
+    padding: 0 10px 0 10px;
+    line-height: 30px;
+    color: #e5e5e5;
+}
+div#menu span {
+    margin-top: 5px;
+}/**@replace#1*/
+div#menu li { background: url(main-delimiter.png) 98% 4px no-repeat; }
+div#menu li.last { background: none; }
+
+/* menu::level2 */
+div#menu ul ul li { background: none; }
+div#menu ul ul {
+    position: absolute;
+    top: 38px;
+    left: -999em;
+    width: 163px;
+    padding: 5px 0 0 0;
+    background: rgb(45,45,45);
+    margin-top:1px;
+}
+div#menu ul ul a {
+    padding: 0 0 0 15px;
+    height: auto;
+    float: none;
+    display: block;
+    line-height: 24px;
+    color: rgb(169,169,169);
+}
+div#menu ul ul span {
+    margin-top: 0;
+    padding-right: 15px;
+    _padding-right: 20px;
+    color: rgb(169,169,169);
+}
+div#menu ul ul a:hover span {
+    color: #fff;
+}
+div#menu ul ul li.last { background: none; }
+div#menu ul ul li {
+    width: 100%;
+}
+
+/* menu::level3 */
+div#menu ul ul ul {
+    padding: 0;
+    margin: -38px 0 0 163px !important;
+    margin-left:172px;
+}
+
+/* colors */
+div#menu ul ul ul { background: rgb(41,41,41); }
+div#menu ul ul ul ul { background: rgb(38,38,38); }
+div#menu ul ul ul ul { background: rgb(35,35,35); }
+
+/* lava lamp */
+div#menu li.back {
+    background: url(lava.png) no-repeat right -44px !important;
+    background-image: url(lava.gif);
+    width: 13px;
+    height: 44px;
+    z-index: 8;
+    position: absolute;
+    margin: -1px 0 0 -5px;
+}
+div#menu li.back .left {
+    background: url(lava.png) no-repeat top left !important;
+    background-image: url(lava.gif);
+    height: 44px;
+    margin-right: 8px;
+}
+
+
+/* The design for cellphone starts here   */
+#cellphone_list table {
+        border-collapse: collapse;
+}
+
+#cellphone_list table tr td {
+        padding-right: 500px;
+        vertical-align: top;
+}
+
+#cellphone_list .list_image {
+  width:        60px;
+  height:       70px;
+}
+
+#cellphone_list .list_description {
+  width:        60%;
+}
+
+#cellphone_list .list_description dl {
+        margin: 0;
+}
+
+#cellphone_list .list_description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#cellphone_list .list_description dd {
+        margin: 0;
+}
+
+#cellphone_list .list_actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#cellphone_list .list_line_even {
+  background:   #e0f8f8;
+}
+
+#cellphone_list .list_line_odd {
+  background:   #f8b0f8;
+  }
+
+
+  .left
+{
+left:20px;
+}
+
+  .leftnew
+{
+left:100px;
+}
+
+  .leftnewlabel
+{
+left:100px;
+}
+
+.headeralign
+{
+margin:auto;
+width:70%;
+}
+
+
+.pagination {
+  cursor: default;
+  height: 22px;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    display: none;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1;
+  }
+  a {
+     background: #00FFFF;
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5;
+    &:hover, &:focus {
+      color: #000033;
+      border-color: #000033;
+    }
+  }
+  .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    b {
+      color: #000033;
+      background: #2e6ab1 + 60;
+      padding: 0.1em 0.25em;
+    }
+  }
+
+}
+/* The design for cellphone ends here   */
+
+@import "nivo-slider.css.scss";
+@import "default.css.scss";
+@import "orman.css.scss";
+@import "pascal.css.scss";
+@import "style.css.scss";
+@import "welcome.css.scss";
+@import "auction.css.scss";
+@import "buys.css.scss";
+@import "items.css.scss";
+@import "line_items.css.scss";
+@import "sessions.css.scss";
+@import "users.css.scss";
+@import "notification.css.scss";
+@import "countdown.css.scss";
+@import "jquery.countdown.css.scss";
+@import "stylecatalog.css.scss";
+@import "regstyle.css.scss";
+
+
+

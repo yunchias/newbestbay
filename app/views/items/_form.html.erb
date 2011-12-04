@@ -1,0 +1,80 @@
+
+
+
+<%= form_for @item,  :html =>  { :multipart => true} do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+    <%= f.label "Type of Post" %> <select name="item[flags]" id="purpose">
+                       <option  value="">Make a choice</option>
+                       <option  value="Auction">Auction</option>
+                       <option  value="Buy it Now">Buy it Now</option>
+
+                   </select>
+     <br><br>
+
+
+                    <div id="attendee_1_wrap" class="name_wrap push">
+					<h3>Please provide an auction end date</h3>
+
+
+							<%= f.label :Auction_end_date %>
+                            <%= f.date_select :auction_end %>
+                            <%= f.time_select :auction_end %>
+  <br>
+  <br>
+				</div>
+
+
+
+    <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.collection_select :category_id, Category.order(:cname), :id, :cname, include_blank: true %>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :item_name, {:style=>"font-size:150%;",:class => "css_class"}  %><br />
+    <%= f.text_field :item_name %>
+  </div>
+  <div class="field">
+    <%= f.label :item_desc, {:style=>"font-size:150%;",:class => "css_class"} %><br />
+    <%= f.text_field :item_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :item_price, {:style=>"font-size:150%;",:class => "css_class"} %><br />
+    <%= f.text_field :item_price %>
+  </div>
+  <div class="field">
+    <%= f.label :item_cond, {:style=>"font-size:150%;",:class => "css_class"}%><br />
+    <%= f.text_field :item_cond %>
+  </div>
+        <%= f.fields_for :assets do |asset_fields| %>
+
+    <div class="field">
+      <%= asset_fields.file_field :asset %>
+      </div>
+        <% end %>
+
+
+
+     <ul id ="trigger-list">
+    <%= f.submit "Create your Item", {:class => "trigger success-trigger"} %>  </ul>
+
+
+  </div>
+
+
+<% end %>

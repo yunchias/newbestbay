@@ -1,0 +1,46 @@
+// Place all the styles related to the biddings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#bidding .entry form, #bidding .entry form div {
+display: inline;
+}
+
+
+#bidding .cart_title {
+font: 120% bold;
+}
+#bidding .item_price, #bidding .total_line {
+text-align: right;
+}
+#bidding .total_line .total_cell {
+font-weight: bold;
+border-top: 1px solid #595;
+}
+
+#bidcart, #bidcart table {
+font-size: smaller;
+color:
+white;
+}
+#bidcart table {
+border-top:
+1px dotted #595;
+border-bottom: 1px dotted #595;
+margin-bottom: 10px;
+}
+
+
+#sidea {
+float: right;
+padding-top: 1em;
+padding-left: 1em;
+padding-bottom: 1em;
+width: 12em;
+background: green;
+}
+#sidea a {
+color: #bfb;
+font-size: large;
+

@@ -1,0 +1,16 @@
+<h1>Auction Report Search</h1>
+
+<%= form_for @search do |f| %>
+
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.collection_select :category_id, Category.order(:cname), :id, :cname, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :auction_start, "Auction Period" %><br />
+    From <%= f.date_select :auction_start, size: 10 %>   to
+    <%= f.date_select :auction_end, size: 10 %>
+  </div>
+  <div class="actions"><%= f.submit "Look up Report" %></div>
+<% end %>

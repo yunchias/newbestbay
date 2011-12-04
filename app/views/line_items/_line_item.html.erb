@@ -1,0 +1,8 @@
+<tr>
+  <div class="field">
+
+<td><%= line_item.quantity%>&times;</td>
+<td><%= line_item.item.item_name %></td>
+<td class="item_price" ><%= number_to_currency(line_item.total_price) %></td>
+      </div>
+</tr>

@@ -1,0 +1,48 @@
+
+
+
+       <% @search.items.each do |item| %>
+
+    	<div class="section" id="page"> <!-- Defining the #page section with the section tag -->
+
+
+
+            <div class="section" id="articles"> <!-- A new section with the articles -->
+
+
+                <div class="line"></div>  <!-- Dividing line -->
+
+                <div class="article" id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+                    <h2><%= item.item_name %></h2>
+                 <div class ="price">
+                  <h2><%= number_to_currency(item.item_price) %></h2>
+
+                   <div class="price">
+                     <%= button_to "Place Bid", :controller => "biddings", :action => "new" %>
+
+                    <div class="line"></div>
+
+
+
+                      <div class="my-custom-class">
+
+                      <p><%= item.item_desc %></p>
+                        </div>
+
+                     </div>
+                </div>
+
+
+
+
+            </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+<% end %>
